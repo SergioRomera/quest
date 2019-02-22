@@ -54,14 +54,6 @@ tree
 │           root_setup.sh
 │           setup.sh
 │
-├───node3_postgreSQL
-│   │   Vagrantfile
-│   └───scripts
-│           postgres_user_environment_setup.sh
-│           root_setup.sh
-│           setup.sh
-│           shareplex_postgres_install.sql
-│
 ├───node4_foglight
 │   │   Vagrantfile
 │   └───scripts
