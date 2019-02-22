@@ -133,6 +133,7 @@ Shareplex and Foglight require licenses. This step is mandatory. Put your licens
 ```
 
 * Foglight license
+
 Put your *.license files in this directory. You can obtain your licences from [licences](https://support.quest.com).
 
 ```
@@ -142,6 +143,7 @@ Put your *.license files in this directory. You can obtain your licences from [l
                 put_foglight_licenses_here.txt
 ```
 * Foglight cartridge
+
 Copy your cartridge files in this directory:
 
 ```
