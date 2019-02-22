@@ -1,4 +1,4 @@
-# Vagrant Shareplex to Oracle 12R1 Build
+# Vagrant for Quest Shareplex and Foglight to Oracle 12R1 Build
 
 The Vagrant scripts here will allow you to build an Oracle Database 12cR1 and a Shareplex 9.2.0 and Foglight 5.9.2 by just starting the VMs in the correct order.
 
