@@ -257,6 +257,7 @@ expand test.%       test.%                  ol7-121-splex2@o.pdb1
 
 ![](foglight_monitoring_instance.png)
 
+![](virtualbox_instances.png)
 
 
 # POC
