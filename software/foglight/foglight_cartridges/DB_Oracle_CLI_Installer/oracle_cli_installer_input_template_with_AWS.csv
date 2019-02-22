@@ -1,4 +1,0 @@
-RAC Agent Name, Instance Type, Agent Name, Host, Port, Connection Method, SID/Service Name, DB User Name, DB Password, Administrator User Name, Administrator Password, Enable OS Monitoring, OS Platform, Authentication, OS User Name, OS Password, SSH Port, Private Key File Path, Passphrase, Use Sudo, Enable VM Monitoring, VM Host, VM Port, VM User Name, VM Password, Enable PI, Listener Name, Encrypted Passwords, Is Mounted, Credential Name,
-,SINGLE,ol7-121-splex1,ol7-121-splex1,1521,SERVICE_NAME,cdb1,system,S1sPassword1!,,,False,,,,,,,,,,,,,,,,,,,
-,SINGLE,ol7-121-splex2,ol7-121-splex2,1521,SERVICE_NAME,cdb1,system,S1sPassword1!,,,False,,,,,,,,,,,,,,,,,,,
-,SINGLE,aws-test,cosmosrds.cgkvb6djbjwi.us-east-2.rds.amazonaws.com,1521,SERVICE_NAME,ORCL,cosmos,cosmos1234,,,False,,,,,,,,,,,,,,,,,,,
