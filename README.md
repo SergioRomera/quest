@@ -188,7 +188,7 @@ vagrant up
 
 The following commands will leave you with a functioning Foglight installation.
 
-* Copy the Foglight software into the vagrant_software folder:
+* Copy the Foglight software into the software folder:
 
 ```
 └───software
