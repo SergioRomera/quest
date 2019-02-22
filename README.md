@@ -263,7 +263,6 @@ expand test.%       test.%                  ol7-121-splex2@o.pdb1
 ```
 
 #Architecture
-![](quest_poc_architecture.png =600x)
 
 ![](foglight_monitoring.png =600x)
 
