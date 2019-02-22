@@ -1,0 +1,9 @@
+Put the foglight licenses here
+
+Files:
+└───software
+    │   └───foglight_licenses
+    │           142-973-364 Foglight for Oracle Evaluation.html
+    │           142-973-364.license
+    │           142-973-397 Foglight for Oracle Performance Investigator Edition Evaluation.html
+    └           142-973-397.license

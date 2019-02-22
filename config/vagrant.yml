@@ -1,0 +1,31 @@
+shared:
+  box: bento/oracle-7.5
+  non_rotational: 'on'
+
+node1:
+  vm_name: ol7_121_splex1
+  mem_size: 4096
+  cpus: 2
+  public_ip: 192.168.56.101
+  u01_disk: /temp/vdi/ol7_121_cplex1_u01.vdi
+
+node2:
+  vm_name: ol7_121_splex2
+  mem_size: 3072
+  cpus: 2
+  public_ip: 192.168.56.102
+  u01_disk: /temp/vdi/ol7_121_cplex2_u01.vdi
+
+node3:
+  vm_name: ol7_postgresql106_splex3
+  mem_size: 2048
+  cpus: 2
+  public_ip: 192.168.56.103
+  u01_disk: /temp/vdi/ol7_postgrsql106_cplex3_u01.vdi
+
+node4:
+  vm_name: ol7_foglight
+  mem_size: 2048
+  cpus: 2
+  public_ip: 192.168.56.104
+  u01_disk: /temp/vdi/ol7_foglight_u01.vdi

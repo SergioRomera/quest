@@ -1,0 +1,5 @@
+Files in this directory
+            SharePlex-9.2.0-b42-oracle120-rh-40-amd64-m64.tpm
+            SPX-9.2.0-b42-oracle110-rh-40-amd64-m64.tpm
+
+For oracle and postgreSQL.
