@@ -138,9 +138,9 @@ Put your *.license files in this directory. You can obtain your licences from [l
 
 ```
 └───software
-        │
-        └───foglight_licenses
-                put_foglight_licenses_here.txt
+    ├───foglight
+    │   ├───foglight_licenses
+    │   │   │   put_foglight_licenses_here.txt
 ```
 * Foglight cartridge
 
