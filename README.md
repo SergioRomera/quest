@@ -81,11 +81,8 @@ tree
 │
 └───software
     │   Foglight-5_9_4-Server-linux-x86_64-b7.zip
-    │   Foglight-for-Cross-Platform-Databases-installer-Linux-64bit_59320.bin
     │   linuxamd64_12102_database_1of2.zip
     │   linuxamd64_12102_database_2of2.zip
-    │   postgresql-10.6-1-linux-x64-binaries.tar.gz
-    │   postgresql-10.6-1-linux-x64.run
     │   put_software_here.txt
     │   SharePlex-9.2.0-b42-oracle120-rh-40-amd64-m64.tpm
     │   shareplex_customer_name.txt
@@ -94,13 +91,10 @@ tree
     │
     ├───foglight
     │   │   fms_silent_install.properties
-    │   │   fms_silent_install_trial.properties
-    │   │   foglight.license
     │   │
     │   ├───foglight_cartridges
     │   │   │   DB_Oracle-5_9_3_20.car
     │   │   │   Infrastructure-5_9_4.car
-    │   │   │   PostgreSQLAgent-5_9_3_10.car
     │   │   │
     │   │   └───DB_Oracle_CLI_Installer
     │   │           DBO_check_permissions.sql
@@ -127,7 +121,7 @@ tree
 
 ```
 
-##Licences
+## Licences
 Shareplex and Foglight require licenses. This step is mandatory. Put your licenses in this 2 directories:
 
 * Shareplex license
@@ -148,7 +142,7 @@ Put your *.license files in this directory. You can obtain your licences from [l
                 put_foglight_licenses_here.txt
 ```
 * Foglight cartridge
-Verify that your cartridge files are in this directory:
+Copy your cartridge files in this directory:
 
 ```
 .
@@ -158,7 +152,6 @@ Verify that your cartridge files are in this directory:
     │   ├───foglight_cartridges
     │   │   │   DB_Oracle-5_9_3_20.car
     │   │   │   Infrastructure-5_9_4.car
-    │   │   │   PostgreSQLAgent-5_9_3_10.car
 ```
 
 ## Build the Shareplex System
