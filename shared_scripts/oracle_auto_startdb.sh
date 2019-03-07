@@ -71,7 +71,7 @@ chown -R oracle.oinstall /home/oracle/scripts
 chmod u+x /home/oracle/scripts/*.sh
 
 # Service
-cat "/lib/systemd/system/dbora.service" <<EOF
+cat > /lib/systemd/system/dbora.service <<EOF
 [Unit]
 Description=The Oracle Database Service
 After=syslog.target network.target
