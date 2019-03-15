@@ -4,6 +4,7 @@ sh /vagrant_scripts/prepare_u01_disk.sh
 
 sh /vagrant_scripts/install_os_packages.sh
 
+echo ""
 echo "******************************************************************************"
 echo "Set root and oracle password and change ownership of /u01." `date`
 echo "******************************************************************************"
@@ -23,6 +24,7 @@ sh /vagrant_scripts/configure_hostname.sh
 
 su - oracle -c 'sh /vagrant_scripts/oracle_db_software_installation.sh'
 
+echo ""
 echo "******************************************************************************"
 echo "Run DB root scripts." `date` 
 echo "******************************************************************************"
@@ -31,6 +33,7 @@ sh ${ORACLE_HOME}/root.sh
 
 su - oracle -c 'sh /vagrant/scripts/oracle_create_database.sh'
 
+echo ""
 echo "******************************************************************************"
 echo "Change ip configuration" `date`
 echo "******************************************************************************"
@@ -41,8 +44,14 @@ IPADDR=10.0.2.16
 NETMASK=255.255.255.0
 EOF
 
+echo ""
 echo "******************************************************************************"
 echo "Install Quest Shareplex." `date` 
 echo "******************************************************************************"
 su - oracle -c 'sh /vagrant_scripts/shareplex_install.sh'
 
+echo ""
+echo "******************************************************************************"
+echo "Autostart DB scripts." `date` 
+echo "******************************************************************************"
+sh /vagrant_scripts/oracle_auto_startdb.sh

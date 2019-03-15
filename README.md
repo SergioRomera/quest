@@ -13,8 +13,8 @@ Download and install the following software.
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * Git client (not mandatory). You can download manually and unzip the file.
 * [Oracle 12R1](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)
-* [Shareplex 9.2.0](https://support.quest.com/en-US/Login?kc_locale=en-US&dest=%2fshareplex%2f9.2.1%2fdownload-new-releases%3fstarted%3d6093403)
-* [Foglight for Databases](https://support.quest.com/fr-FR/Login?kc_locale=fr-FR&dest=%2ffr-fr%2ffoglight-for-databases%2f5.9.3%2fdownload-new-releases%3fstarted%3d6093819)
+* Shareplex 9.2.0 will be installed
+* Foglight for Databases 5.9.3 will be installed
 * [Foglight Cartridge for Oracle](https://support.quest.com/fr-FR/Login?kc_locale=fr-FR&dest=%2ffr-fr%2ffoglight-for-databases%2f5.9.3%2fdownload-new-releases%3fstarted%3d6093814)
 * [Foglight licenses](https://support.quest.com/fr-fr/contact-us/licensing)
 
@@ -27,99 +27,8 @@ Pick an area on your file system to act as the base for this git repository and 
 git clone https://github.com/SergioRomera/quest.git
 ```
 
-Copy the software under the "quest" directory. From the "quest" directory, the structure should look like this.
+Copy the software under the "quest" directory.
 
-```
-tree
-.
-│   README.md
-│
-├───config
-│       install.env
-│       vagrant.yml
-│
-├───node1
-│   │   Vagrantfile
-│   └───scripts
-│           oracle_create_database.sh
-│           oracle_user_environment_setup.sh
-│           root_setup.sh
-│           setup.sh
-│
-├───node2
-│   │   Vagrantfile
-│   └───scripts
-│           oracle_create_database.sh
-│           oracle_user_environment_setup.sh
-│           root_setup.sh
-│           setup.sh
-│
-├───node4_foglight
-│   │   Vagrantfile
-│   └───scripts
-│           foglight_setup.sh
-│           root_setup.sh
-│           setup.sh
-│       
-│
-├───shared_scripts
-│       configure_chrony.sh
-│       configure_hostname.sh
-│       configure_hostname_postgres.sh
-│       configure_hosts_base.sh
-│       configure_shared_disks.sh
-│       install_os_packages.sh
-│       oracle_auto_startdb.sh
-│       oracle_db_software_installation.sh
-│       prepare_u01_disk.sh
-│       shareplex_create_test_table.sh
-│       shareplex_functions.sh
-│       shareplex_install.sh
-│       shareplex_install_postgres_config.sh
-│       shareplex_install_windows.sql
-│       tables_samples.sql
-│
-└───software
-    │   Foglight-5_9_4-Server-linux-x86_64-b7.zip
-    │   linuxamd64_12102_database_1of2.zip
-    │   linuxamd64_12102_database_2of2.zip
-    │   put_software_here.txt
-    │   SharePlex-9.2.0-b42-oracle120-rh-40-amd64-m64.tpm
-    │   shareplex_customer_name.txt
-    │   shareplex_licence_key.txt
-    │   SPX-9.2.0-b42-oracle110-rh-40-amd64-m64.tpm
-    │
-    ├───foglight
-    │   │   fms_silent_install.properties
-    │   │
-    │   ├───foglight_cartridges
-    │   │   │   DB_Oracle-5_9_3_20.car
-    │   │   │   Infrastructure-5_9_4.car
-    │   │   │
-    │   │   └───DB_Oracle_CLI_Installer
-    │   │           DBO_check_permissions.sql
-    │   │           DBO_granting_permissions.sql
-    │   │           oracle_cli_installer.groovy
-    │   │           oracle_cli_installer_input_template.csv
-    │   │           README.txt
-    │   │
-    │   └───foglight_licenses
-    │           put_foglight_licenses_here.txt
-    │
-    ├───Server
-    │   └───FoglightServer-5_9_4
-    │           fms_silent_install.properties
-    │           Foglight-5_9_4-install_linux-x86_64.bin
-    │           FoglightAgentManager_5.9.4_DevKitReleaseNotes.html
-    │           FoglightAgentManager_5.9.4_ReleaseNotes.html
-    │           Foglight_5.9.4_ReleaseNotes.html
-    │
-    └───shareplex
-            put_shareplex_software_here.txt
-            SharePlex-9.2.0-b42-oracle120-rh-40-amd64-m64.tpm
-            SPX-9.2.0-b42-oracle110-rh-40-amd64-m64.tpm
-
-```
 
 ## Licences
 Shareplex and Foglight require licenses. This step is mandatory. Put your licenses in this 2 directories:
@@ -144,7 +53,7 @@ Put your *.license files in this directory. You can obtain your licences from [l
 ```
 * Foglight cartridge
 
-Copy your cartridge files in this directory:
+Copy your additional cartridge files in this directory:
 
 ```
 .
@@ -154,6 +63,7 @@ Copy your cartridge files in this directory:
     │   ├───foglight_cartridges
     │   │   │   DB_Oracle-5_9_3_20.car
     │   │   │   Infrastructure-5_9_4.car
+    │   │   │   *.car
 ```
 
 ## Build the Shareplex System
@@ -188,13 +98,6 @@ vagrant up
 
 The following commands will leave you with a functioning Foglight installation.
 
-* Copy the Foglight software into the software folder:
-
-```
-└───software
-        Foglight-5_9_4-Server-linux-x86_64-b7.zip
-```
-
 Start the forth node and wait for it to complete.
 
 ```
@@ -211,9 +114,6 @@ Perform the following to turn off the system cleanly.
 cd ../node4
 vagrant halt
 
-cd ../node3
-vagrant halt
-
 cd ../node2
 vagrant halt
 
@@ -227,9 +127,6 @@ The following commands will destroy all VMs and the associated files, so you can
 
 ```
 cd ../node4
-vagrant destroy -f
-
-cd ../node3
 vagrant destroy -f
 
 cd ../node2

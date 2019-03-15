@@ -33,11 +33,6 @@ echo "Foglight installation." `date`
 echo "******************************************************************************"
 
 useradd foglight
-#passwd foglight
-
-cd /vagrant_software
-unzip -o Foglight-5_9_4-Server-linux-x86_64-b7.zip
-cd /vagrant_software/Server/FoglightServer-5_9_4
 
 sudo su - foglight -c "sh /vagrant/scripts/foglight_setup.sh"
 

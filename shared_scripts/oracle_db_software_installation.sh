@@ -1,5 +1,6 @@
 . /vagrant_config/install.env
 
+echo ""
 echo "******************************************************************************"
 echo "Unzip database software." `date`
 echo "******************************************************************************"
@@ -8,6 +9,7 @@ cd /u01/software
 unzip -oq "/vagrant_software/${DB_SOFTWARE}"
 cd database
 
+echo ""
 echo "******************************************************************************"
 echo "Do database software-only installation." `date`
 echo "******************************************************************************"

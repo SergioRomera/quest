@@ -16,7 +16,6 @@ var_cpus           = params['node2']['cpus']
 var_public_ip      = params['node2']['public_ip']
 var_u01_disk       = params['node2']['u01_disk']
 
-
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -80,6 +79,11 @@ Vagrant.configure("2") do |config|
     vb.memory = var_mem_size
     vb.cpus   = var_cpus
     vb.name   = var_vm_name
+    
+    #Virtualbox without network connexion
+    #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    #vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    #
 
     vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', '0', '--nonrotational', var_non_rotational]
 
@@ -88,6 +92,7 @@ Vagrant.configure("2") do |config|
     end
     vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', var_u01_disk, '--nonrotational', var_non_rotational]
   end
+
 
   #
   # View the documentation for the provider you are using for more

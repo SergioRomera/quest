@@ -92,7 +92,7 @@ dbca -silent -createDatabase                                                 \
   -pdbAdminPassword ${PDB_PASSWORD}                                          \
   -databaseType MULTIPURPOSE                                                 \
   -automaticMemoryManagement false                                           \
-  -totalMemory 2048                                                          \
+  -totalMemory 768                                                          \
   -storageType FS                                                            \
   -datafileDestination "${DATA_DIR}"                                         \
   -redoLogFileSize 50                                                        \
