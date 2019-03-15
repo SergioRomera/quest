@@ -110,6 +110,7 @@ vagrant up
 
 Perform the following to turn off the system cleanly.
 
+
 ```
 cd ../node4
 vagrant halt
