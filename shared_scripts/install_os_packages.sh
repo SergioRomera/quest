@@ -8,6 +8,10 @@ wget https://yum.oracle.com/public-yum-ol7.repo
 yum install -y yum-utils
 yum-config-manager --enable ol7_developer_EPEL
 yum install -y zip unzip mlocate telnet tree # sshpass 
+
+#Kafka prerequisite
+yum install java -y
+
 yum install -y oracle-rdbms-server-12cR1-preinstall
 #yum -y update
 
