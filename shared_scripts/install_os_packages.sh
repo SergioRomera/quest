@@ -10,3 +10,8 @@ yum-config-manager --enable ol7_developer_EPEL
 yum install -y zip unzip mlocate telnet tree # sshpass 
 yum install -y oracle-rdbms-server-12cR1-preinstall
 #yum -y update
+
+cat >> /home/vagrant/.bash_profile <<EOF
+PS1="[\u@\h:\[\033[33;1m\]\w\[\033[m\] ] $ "
+alias o='sudo su - oracle'
+EOF

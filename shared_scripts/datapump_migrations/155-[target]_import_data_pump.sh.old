@@ -1,0 +1,10 @@
+#Connect to surce database
+#impdp quest/questuser@//aws-db-instance.cixdbkviwolw.eu-west-3.rds.amazonaws.com:1521/quest \
+#     directory=data_pump_dir \
+#     dumpfile=sample_copied.dmp \
+#     logfile=logfile.log
+
+#impdp quest/questuser@AWSDB directory=data_pump_dir dumpfile=sample_copied.dmp logfile=logfile.log
+impdp system/manager@pdb1 directory=data_pump_dir_sample \
+  dumpfile=sample_copied.dmp \
+  logfile=logfile.log

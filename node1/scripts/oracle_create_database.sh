@@ -28,6 +28,17 @@ ${NODE2_DB_UNIQUE_NAME} =
       (SID = ${ORACLE_SID})
     )
   )
+
+${PDB_NAME}_VM2 =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = ${NODE2_HOSTNAME})(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SID = ${ORACLE_SID})
+    )
+  )
   
 ${PDB_NAME} =
   (DESCRIPTION =
@@ -38,6 +49,13 @@ ${PDB_NAME} =
     )
   )
 
+${RDS_DB_NAME}=
+  (DESCRIPTION=
+    (ADDRESS=(PROTOCOL = TCP)(HOST=${AWS_RDS_HOST})(PORT=${AWS_RDS_PORT}))
+    (CONNECT_DATA=
+      (SERVICE_NAME=${RDS_DB_NAME})
+    )
+  )
 
 EOF
 
@@ -93,7 +111,7 @@ dbca -silent -createDatabase                                                 \
   -pdbAdminPassword ${PDB_PASSWORD}                                          \
   -databaseType MULTIPURPOSE                                                 \
   -automaticMemoryManagement false                                           \
-  -totalMemory 768                                                          \
+  -totalMemory 1024                                                          \
   -storageType FS                                                            \
   -datafileDestination "${DATA_DIR}"                                         \
   -redoLogFileSize 50                                                        \

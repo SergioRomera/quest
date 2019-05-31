@@ -46,7 +46,16 @@ echo "**************************************************************************
 su - oracle -c '. /vagrant_config/install.env && cat > ${SHAREPLEX_VARDIR}/config/my_config_oracle.cfg <<EOF
 datasource:o.pdb1
 #source tables      target tables           routing map
-expand test.%      test.%                   ol7-121-splex2@o.pdb1
+expand test.%       test.%                  ol7-121-splex2@o.pdb1
+
+EOF'
+
+su - oracle -c '. /vagrant_config/install.env && cat > ${SHAREPLEX_VARDIR}/config/cdc.cfg <<EOF
+datasource:o.pdb1
+#source tables      target tables           routing map
+expand test.%       test.%                  ol7-121-splex2@o.pdb1
+test.cdc            !cdc:cdc.cdc            ol7-121-splex2@c.pdb1
+
 EOF'
 
 su - oracle -c '. /vagrant_config/install.env && cat > ${SHAREPLEX_VARDIR}/config/my_config_postgres.cfg <<EOF
@@ -55,12 +64,22 @@ datasource:o.pdb1
 expand test.%      test.%                   ol7-postgresql106-splex3@r.testdb
 EOF'
 
-echo ""
-echo "******************************************************************************"
-echo "Quest Shareplex configuration." `date`
-echo "******************************************************************************"
-su - oracle -c 'cd ${SHAREPLEX_DIRINSTALL}/bin | echo -e "activate config my_config_oracle.cfg" | sp_ctrl'
-#su - oracle -c 'cd ${SHAREPLEX_DIRINSTALL}/bin | echo -e "activate config my_config_postgres.cfg" | sp_ctrl'
+
+if [ $AWS_RDS = 'Y' ]; then
+  . /vagrant_scripts/shareplex_install_AWS.sh
+  echo ""
+  echo "******************************************************************************"
+  echo "Quest Shareplex AWS configuration." `date`
+  echo "******************************************************************************"
+  su - oracle -c 'cd ${SHAREPLEX_DIRINSTALL}/bin | echo -e "activate config my_config_AWS_oracle.cfg" | sp_ctrl'
+else
+  echo ""
+  echo "******************************************************************************"
+  echo "Quest Shareplex configuration." `date`
+  echo "******************************************************************************"
+  su - oracle -c 'cd ${SHAREPLEX_DIRINSTALL}/bin | echo -e "activate config my_config_oracle.cfg" | sp_ctrl'
+  #su - oracle -c 'cd ${SHAREPLEX_DIRINSTALL}/bin | echo -e "activate config my_config_postgres.cfg" | sp_ctrl'
+fi
 
 echo ""
 echo "******************************************************************************"
@@ -72,6 +91,7 @@ echo ""
 echo "******************************************************************************"
 echo "Set the PDB to auto-start." `date`
 echo "******************************************************************************"
+sleep 5
 su - oracle -c 'sh /vagrant_scripts/shareplex_create_test_table.sh'
 
 echo ""
