@@ -160,6 +160,44 @@ Scripts are in ./shared_scripts/datapump_migrations directory.
 Amend file config.env to configure your AWS RDS.
 This migrations use Shareplex to copy source schema (SOURCE_SCHEMA=QUEST_PERF) schema to target schema (TARGET_SCHEMA=QUEST_PERF). Check config.env file to setup.
 
+##Kafka
+Scripts are in ./shared_scripts/kafka directory.
+This scripts will download, install and start Kafka software in the Node 2.
+A tests is done from KAFKA user in Node 1 Oracle database to Node 2.
+
+```
+#Start Kafka test
+cd /vagrant_scripts/kafka
+sh kafka_poc_install.sh
+
+ _  __           __   _               ____     ___     ____
+| |/ /   __ _   / _| | | __   __ _   |  _ \   / _ \   / ___|
+| ' /   / _` | | |_  | |/ /  / _` |  | |_) | | | | | | |
+| . \  | (_| | |  _| |   <  | (_| |  |  __/  | |_| | | |___
+|_|\_\  \__,_| |_|   |_|\_\  \__,_|  |_|      \___/   \____|
+  __  _                 ___                         _    __
+ / / | |__    _   _    / _ \   _   _    ___   ___  | |_  \ \
+| |  | '_ \  | | | |  | | | | | | | |  / _ \ / __| | __|  | |
+| |  | |_) | | |_| |  | |_| | | |_| | |  __/ \__ \ | |_   | |
+| |  |_.__/   \__, |   \__\_\  \__,_|  \___| |___/  \__|  | |
+ \_\          |___/                                      /_/
+
+[20190531-144430] Create kafka sql user: OK
+[20190531-144439] Download kafka binaries: OK
+[20190531-144439] untar kafka binaires: OK
+[20190531-144441] Deactivate kafka shareplex config: OK
+[20190531-144448] Activate kafka shareplex config: OK
+[20190531-144453] Start zookeeper server: OK
+[20190531-144503] Start kafka server: OK
+[20190531-144513] Listing kafka topics
+[20190531-144513] Please, start consumer process and press ENTER to continue
+
+[20190531-144743] Insert in kafka sql user: OK
+[20190531-144743] Execute next command to check kafka messages from oracle
+[20190531-144743] sh kafka_consume_topic.sh
+```
+
+
 ## Architecture
 
 ![](quest_poc_architecture.png)

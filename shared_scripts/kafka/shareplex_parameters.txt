@@ -1,0 +1,8 @@
+set param SP_OCT_USE_SUPP_KEYS 1
+
+target x.kafka set format record=json
+target x.kafka set format record=xml
+
+target x.kafka show
+target x.kafka [queue queuename] set kafka property=value
+target x.kafka set kafka topic=shareplex
