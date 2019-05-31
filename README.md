@@ -2,8 +2,10 @@
 
 The Vagrant scripts here will allow you to build an Oracle Database 12cR1 and a Shareplex 9.2.0 and Foglight 5.9.2 by just starting the VMs in the correct order.
 
-If you need a more detailed description of this build, check out the article here.
+Two new features has been added:
 
+* Shareplex Change Data Capture
+* On premise to AWS RDS database migration
 
 ## Required Software
 
@@ -146,6 +148,17 @@ datasource:o.pdb1
 expand test.%       test.%                  ol7-121-splex2@o.pdb1
 
 ```
+
+## Change Data Capture
+
+Scripts are in ./shared_scripts/cdc directory.
+Amend file config.env if necessary.
+Tables created in test schema in source database will be replicated to test schema in target database. A new schema in target is created (cdc schema) that contains all modifications from tables cdc and cdc2 in test schema.
+
+## AWS migration
+Scripts are in ./shared_scripts/datapump_migrations directory.
+Amend file config.env to configure your AWS RDS.
+This migrations use Shareplex to copy source schema (SOURCE_SCHEMA=QUEST_PERF) schema to target schema (TARGET_SCHEMA=QUEST_PERF). Check config.env file to setup.
 
 ## Architecture
 
