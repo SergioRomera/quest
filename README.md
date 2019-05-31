@@ -160,7 +160,7 @@ Scripts are in ./shared_scripts/datapump_migrations directory.
 Amend file config.env to configure your AWS RDS.
 This migrations use Shareplex to copy source schema (SOURCE_SCHEMA=QUEST_PERF) schema to target schema (TARGET_SCHEMA=QUEST_PERF). Check config.env file to setup.
 
-##Kafka
+## Kafka
 Scripts are in ./shared_scripts/kafka directory.
 This scripts will download, install and start Kafka software in the Node 2.
 A tests is done from KAFKA user in Node 1 Oracle database to Node 2.
