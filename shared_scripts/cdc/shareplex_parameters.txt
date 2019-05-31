@@ -1,0 +1,41 @@
+
+ALTER SYSTEM SWITCH LOGFILE;
+
+
+#source
+Alter table cdc ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
+set param SP_OCT_USE_SUPP_KEYS 1
+set param SP_OCT_INCLUDE_UNCHANGED_COL 1
+
+#target
+# Post insert 2 rows for every change made to the tracked source table
+set param SP_OPO_TRACK_PREIMAGE 1
+set param SP_OPO_TRACK_OPERATIONS 'I/U/D'
+
+#To configure Post to insert a row for every COMMIT
+set param SP_OPO_TRACK_COMMITS 1
+
+
+target c.pdb1 queue ol7-121-splex1 reset metadata 
+
+target c.pdb1 queue ol7-121-splex1 show metadata
+
+target c.pdb1 queue ol7-121-splex1 set metadata host
+target c.pdb1 queue ol7-121-splex1 set metadata scn
+target c.pdb1 queue ol7-121-splex1 set metadata time
+target c.pdb1 queue ol7-121-splex1 set metadata userid
+target c.pdb1 queue ol7-121-splex1 set metadata op
+target c.pdb1 queue ol7-121-splex1 set metadata seq
+target c.pdb1 queue ol7-121-splex1 set metadata queue
+target c.pdb1 queue ol7-121-splex1 set metadata changeid
+target c.pdb1 queue ol7-121-splex1 set metadata rowid
+target c.pdb1 queue ol7-121-splex1 set metadata trans
+
+
+
+--target c.pdb1 queue ol7-121-splex1 set metadata idx
+
+target c.pdb1 queue ol7-121-splex1 reset metadata size
+
+target c.pdb1 queue ol7-121-splex1 set source test
+

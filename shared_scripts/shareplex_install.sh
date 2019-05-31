@@ -15,6 +15,11 @@ create user test identified by test;
 grant connect,resource to test;
 alter user test quota unlimited on USERS;
 
+-- CDC USER (change data capture)
+create user cdc identified by cdc;
+grant connect,resource to cdc;
+alter user cdc quota unlimited on USERS;
+
 EXIT;
 EOF
 
@@ -117,11 +122,3 @@ echo "Quest Shareplex show configuration." `date`
 echo "******************************************************************************"
 echo -e ""
 echo -e "show\nstatus" | ${SHAREPLEX_DIRINSTALL}/bin/sp_ctrl
-
-echo ""
-echo "******************************************************************************"
-echo "Quest Shareplex create configuration file." `date`
-echo "******************************************************************************"
-echo -e ""
-echo -e "show\nstatus" | ${SHAREPLEX_DIRINSTALL}/bin/sp_ctrl
-
