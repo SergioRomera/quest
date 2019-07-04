@@ -160,6 +160,109 @@ Scripts are in ./shared_scripts/datapump_migrations directory.
 Amend file config.env to configure your AWS RDS.
 This migrations use Shareplex to copy source schema (SOURCE_SCHEMA=QUEST_PERF) schema to target schema (TARGET_SCHEMA=QUEST_PERF). Check config.env file to setup.
 
+```
+__  __ _                 _   _                 __
+|  \/  (_) __ _ _ __ __ _| |_(_) ___  _ __     / _|_ __ ___  _ __ ___
+| |\/| | |/ _` | '__/ _` | __| |/ _ \| '_ \   | |_| '__/ _ \| '_ ` _ \
+| |  | | | (_| | | | (_| | |_| | (_) | | | |  |  _| | | (_) | | | | | |
+|_|  |_|_|\__, |_|  \__,_|\__|_|\___/|_| |_|  |_| |_|  \___/|_| |_| |_|
+          |___/
+  ___                                    _             _
+/ _ \ _ __     _ __  _ __ ___ _ __ ___ (_)___  ___   | |_ ___
+| | | | '_ \   | '_ \| '__/ _ \ '_ ` _ \| / __|/ _ \  | __/ _ \
+| |_| | | | |  | |_) | | |  __/ | | | | | \__ \  __/  | || (_) |
+\___/|_| |_|  | .__/|_|  \___|_| |_| |_|_|___/\___|   \__\___/
+
+    _     __        __  ____      __  _               ___                  _    __
+   / \    \ \      / / / ___|    / / | |__  _   _    / _ \ _   _  ___  ___| |_  \ \
+  / _ \    \ \ /\ / /  \___ \   | |  | '_ \| | | |  | | | | | | |/ _ \/ __| __|  | |
+/ ___ \    \ V  V /    ___) |  | |  | |_) | |_| |  | |_| | |_| |  __/\__ \ |_   | |
+/_/   \_\    \_/\_/    |____/   | |  |_.__/ \__, |   \__\_\\__,_|\___||___/\__|  | |
+                                 \_\        |___/                               /_/
+
+
+[20190523-071517] Create target user: OK
+[20190523-071517] Grant source privileges: OK
+[20190523-071517] Stop post: OK
+[20190523-071525] Activate Shareplex config: OK
+[20190523-071525] Switch log in source database: OK
+[20190523-071525] Take SCN in source database to sync: OK
+mkdir: cannot create directory ‘/u01/app/oracle/product/12.1.0.2/dbhome_1/datapump’: File exists
+
+Export: Release 12.1.0.2.0 - Production on Thu May 23 07:15:25 2019
+
+Copyright (c) 1982, 2014, Oracle and/or its affiliates.  All rights reserved.
+
+Connected to: Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+FLASHBACK automatically enabled to preserve database integrity.
+Starting "SYSTEM"."EXPORT_QUEST_PERF":  system/********@pdb1 schemas=QUEST_PERF directory=data_pump_dir_sample dumpfile=sample.dmp logfile=sample.log job_name=export_quest_perf parallel=2 compression=all flashback_scn=4048877
+Estimate in progress using BLOCKS method...
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+Total estimation using BLOCKS method: 325.5 MB
+Processing object type SCHEMA_EXPORT/USER
+. . exported "QUEST_PERF"."EMPLOYEE"                     41.10 MB  599998 rows
+Processing object type SCHEMA_EXPORT/SYSTEM_GRANT
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/SYNONYM/SYNONYM
+Processing object type SCHEMA_EXPORT/TYPE/TYPE_SPEC
+Processing object type SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/FGA_POLICY
+Processing object type SCHEMA_EXPORT/PACKAGE/PACKAGE_SPEC
+Processing object type SCHEMA_EXPORT/FUNCTION/FUNCTION
+Processing object type SCHEMA_EXPORT/PROCEDURE/PROCEDURE
+Processing object type SCHEMA_EXPORT/PACKAGE/COMPILE_PACKAGE/PACKAGE_SPEC/ALTER_PACKAGE_SPEC
+Processing object type SCHEMA_EXPORT/FUNCTION/ALTER_FUNCTION
+Processing object type SCHEMA_EXPORT/PROCEDURE/ALTER_PROCEDURE
+Processing object type SCHEMA_EXPORT/VIEW/VIEW
+Processing object type SCHEMA_EXPORT/PACKAGE/PACKAGE_BODY
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
+. . exported "QUEST_PERF"."EMPLOYEEX"                    32.58 MB  599998 rows
+. . exported "QUEST_PERF"."EMP_SAL_HIST"                 21.26 MB 1700000 rows
+. . exported "QUEST_PERF"."EMP_SMALL"                    3.093 MB   92193 rows
+. . exported "QUEST_PERF"."JOB_HISTORY"                  522.1 KB   48063 rows
+. . exported "QUEST_PERF"."STRESSTESTTABLE"              680.1 KB    1737 rows
+. . exported "QUEST_PERF"."EMP_SAL_HISTX"                142.6 KB   10000 rows
+. . exported "QUEST_PERF"."EMP_SMALLX"                   116.2 KB    3000 rows
+. . exported "QUEST_PERF"."GRADE"                        29.83 KB    1100 rows
+. . exported "QUEST_PERF"."LOCATIONS"                    23.22 KB     784 rows
+. . exported "QUEST_PERF"."AWS_TEST"                     4.929 KB       2 rows
+. . exported "QUEST_PERF"."COUNTRIES"                    6.843 KB     196 rows
+. . exported "QUEST_PERF"."DEPARTMENT"                   13.84 KB     306 rows
+. . exported "QUEST_PERF"."DEPARTMENTX"                  14.13 KB     306 rows
+. . exported "QUEST_PERF"."GRADEX"                       20.60 KB    1100 rows
+. . exported "QUEST_PERF"."JOBS"                         5.453 KB      19 rows
+. . exported "QUEST_PERF"."PERSONLIST"                   5.125 KB       2 rows
+. . exported "QUEST_PERF"."REGIONS"                      4.906 KB       6 rows
+. . exported "QUEST_PERF"."T_PERSON"                     6.273 KB       0 rows
+Master table "SYSTEM"."EXPORT_QUEST_PERF" successfully loaded/unloaded
+******************************************************************************
+Dump file set for SYSTEM.EXPORT_QUEST_PERF is:
+  /u01/app/oracle/product/12.1.0.2/dbhome_1/datapump/sample.dmp
+Job "SYSTEM"."EXPORT_QUEST_PERF" successfully completed at Thu May 23 07:16:04 2019 elapsed 0 00:00:38
+
+[20190523-071605] Export datapump: OK
+[20190523-071605] Insert some data in source database..... You have 60 seconds!
+[20190523-071706] Create dblink: OK
+[20190523-071706] File transfer running...
+[20190523-071719] File transfer: OK
+[20190523-071719] Import data pump running...
+[20190523-071851] Import data pump: OK
+[20190523-071851] Reconcile queue: OK
+[20190523-071851] Start post: OK
+[20190523-071851] Cleanup source data pump: OK
+[20190523-071856] Cleanup target datapump: OK
+
+```
+
 ## Kafka
 Scripts are in ./shared_scripts/kafka directory.
 This scripts will download, install and start Kafka software in the Node 2.
