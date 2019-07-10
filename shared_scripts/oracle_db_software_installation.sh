@@ -15,7 +15,6 @@ if [ -f $ORACLE_BINARIES_INSTALL/$ORACLE_SOFTWARE1 ]; then
 else
   echo "Oracle binary 1 not found"
   echo "Download $ORACLE_SOFTWARE1 in progress..."
-  cd $ORACLE_BINARIES_INSTALL
   wget -q $ORACLE_BINARY_DOWNLOAD1
 fi
 
@@ -24,10 +23,10 @@ if [ -f $ORACLE_BINARIES_INSTALL/$ORACLE_SOFTWARE2 ]; then
 else
   echo "Oracle binary 2 not found"
   echo "Download $ORACLE_SOFTWARE2 in progress..."
-  cd $ORACLE_BINARIES_INSTALL
   wget -q $ORACLE_BINARY_DOWNLOAD2
 fi
 
+cd /u01/software/
 echo "******************************************************************************"
 echo "Unzip Oracle database software" `date`
 echo "******************************************************************************"
