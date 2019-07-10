@@ -47,7 +47,7 @@ This scripts containts severals POC's.
 Shareplex: Schema test in pdb1 database in Node 1 is replicated in Node 2.
 Foglight: Foglight will monitor all the activity from Node 1 and Node 2.
 
-## Licenses
+# Licenses
 Shareplex and Foglight require licenses. This step is mandatory. Put your licenses in this 2 directories:
 
 * Shareplex license
@@ -69,7 +69,7 @@ Put your *.license files in this directory. You can obtain your licences from [l
     │   │   │   put_foglight_licenses_here.txt
 ```
 
-## Build the Shareplex System
+# Build the Shareplex System
 
 The following commands will leave you with a functioning Shareplex installation.
 
@@ -89,7 +89,7 @@ cd ../node2
 vagrant up
 ```
 
-## Build the Foglight System
+# Build the Foglight System
 
 The following commands will leave you with a functioning Foglight installation.
 
@@ -101,7 +101,7 @@ vagrant up
 ```
 
 
-## Turn Off System
+# Turn Off System
 
 Perform the following to turn off the system cleanly.
 
@@ -117,7 +117,7 @@ cd ../node1
 vagrant halt
 ```
 
-## Remove Whole System
+# Remove Whole System
 
 The following commands will destroy all VMs and the associated files, so you can run the process again.
 
@@ -132,7 +132,7 @@ cd ../node1
 vagrant destroy -f
 ```
 
-## Shareplex configuration
+# Shareplex configuration
 Oracle user test is created in VM1 in pdb1 database and is replicated. Here the shareplex configuration:
 
 ```
@@ -148,7 +148,7 @@ Sample scripts are included in ./shared_scripts/cdc directory.
 Amend file config.env if necessary.
 Tables created in test schema in Node 1 in pdb1 database will be replicated to test schema in target database (Node 2). A new schema in target is created (cdc schema) that contains all modifications from tables cdc and cdc2 in test schema.
 
-## AWS migration
+# AWS migration
 Scripts are in ./shared_scripts/datapump_migrations directory.
 Amend file config.env to configure your AWS RDS.
 This migrations use Shareplex to copy source schema (SOURCE_SCHEMA=QUEST_PERF) schema to target schema (TARGET_SCHEMA=QUEST_PERF). Check config.env file to setup.
@@ -256,7 +256,7 @@ Job "SYSTEM"."EXPORT_QUEST_PERF" successfully completed at Thu May 23 07:16:04 2
 
 ```
 
-## Kafka
+# Kafka
 Scripts are in ./shared_scripts/kafka directory.
 This scripts will download, install and start Kafka software in the Node 2.
 A tests is done from KAFKA user in Node 1 Oracle database to Node 2.
