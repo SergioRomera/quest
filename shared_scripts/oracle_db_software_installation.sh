@@ -4,9 +4,35 @@ echo ""
 echo "******************************************************************************"
 echo "Unzip database software." `date`
 echo "******************************************************************************"
-mkdir /u01/software
-cd /u01/software
-unzip -oq "/vagrant_software/${DB_SOFTWARE}"
+mkdir /u01/software/
+cd /u01/software/
+
+echo "******************************************************************************"
+echo "Oracle Binaries download" `date`
+echo "******************************************************************************"
+if [ -f $ORACLE_BINARIES_INSTALL/$ORACLE_SOFTWARE1 ]; then
+  echo "Oracle binary 1 found"
+else
+  echo "Oracle binary 1 not found"
+  echo "Download $ORACLE_SOFTWARE1 in progress..."
+  cd $ORACLE_BINARIES_INSTALL
+  wget -q $ORACLE_BINARY_DOWNLOAD1
+fi
+
+if [ -f $ORACLE_BINARIES_INSTALL/$ORACLE_SOFTWARE2 ]; then
+  echo "Oracle binary 2 found"
+else
+  echo "Oracle binary 2 not found"
+  echo "Download $ORACLE_SOFTWARE2 in progress..."
+  cd $ORACLE_BINARIES_INSTALL
+  wget -q $ORACLE_BINARY_DOWNLOAD2
+fi
+
+echo "******************************************************************************"
+echo "Unzip Oracle database software" `date`
+echo "******************************************************************************"
+unzip -oq "${ORACLE_BINARIES_INSTALL}/${ORACLE_SOFTWARE1}"
+unzip -oq "${ORACLE_BINARIES_INSTALL}/${ORACLE_SOFTWARE2}"
 cd database
 
 echo ""
