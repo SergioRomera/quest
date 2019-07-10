@@ -1,11 +1,12 @@
 # Vagrant for Quest Shareplex and Foglight to Oracle 12R1 Build
 
-The Vagrant scripts here will allow you to build an Oracle Database 12cR1 and a Shareplex 9.2.0 and Foglight 5.9.2 by just starting the VMs in the correct order.
+The Vagrant scripts here will allow you to build 2 virtual machines in your comuter with an Oracle Database 12cR1 and Shareplex 9.2.0 in each node (1 and 2) and Foglight 5.9.2 by just starting the VMs in the correct order.
 
-Two new features has been added:
+Three new features has been added:
 
 * Shareplex Change Data Capture
 * On premise to AWS RDS database migration
+* Kafka replication from Node 1 to Node 2
 
 ## Required Software
 
@@ -13,12 +14,8 @@ Download and install the following software.
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [Vagrant](https://www.vagrantup.com/downloads.html)
-* Git client (not mandatory). You can download manually and unzip the file.
-* [Oracle 12R1](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)
-* Shareplex 9.2.0 will be installed
-* Foglight for Databases 5.9.3 will be installed
-* [Foglight Cartridge for Oracle](https://support.quest.com/fr-FR/Login?kc_locale=fr-FR&dest=%2ffr-fr%2ffoglight-for-databases%2f5.9.3%2fdownload-new-releases%3fstarted%3d6093814)
-* [Foglight licenses](https://support.quest.com/fr-fr/contact-us/licensing)
+* SharePlex licenses
+* Foglight licenses
 
 
 ## Clone Repository
@@ -31,8 +28,26 @@ git clone https://github.com/SergioRomera/quest.git
 
 Copy the software under the "quest" directory.
 
+Or download the quest-master.zip file in a directory and unzip.
 
-## Licences
+
+## Architecture
+
+![](quest_poc_architecture.png)
+
+![](foglight_monitoring.png)
+
+![](foglight_monitoring_instance.png)
+
+![](virtualbox_instances.png)
+
+
+# POC
+This scripts containts severals POC's.
+Shareplex: Schema test in pdb1 database in Node 1 is replicated in Node 2.
+Foglight: Foglight will monitor all the activity from Node 1 and Node 2.
+
+## Licenses
 Shareplex and Foglight require licenses. This step is mandatory. Put your licenses in this 2 directories:
 
 * Shareplex license
@@ -45,7 +60,7 @@ Shareplex and Foglight require licenses. This step is mandatory. Put your licens
 
 * Foglight license
 
-Put your *.license files in this directory. You can obtain your licences from [licences](https://support.quest.com).
+Put your *.license files in this directory. You can obtain your licences from [licenses](https://support.quest.com).
 
 ```
 └───software
@@ -53,32 +68,10 @@ Put your *.license files in this directory. You can obtain your licences from [l
     │   ├───foglight_licenses
     │   │   │   put_foglight_licenses_here.txt
 ```
-* Foglight cartridge
-
-Copy your additional cartridge files in this directory:
-
-```
-.
-│
-└───software
-    ├───foglight
-    │   ├───foglight_cartridges
-    │   │   │   DB_Oracle-5_9_3_20.car
-    │   │   │   Infrastructure-5_9_4.car
-    │   │   │   *.car
-```
 
 ## Build the Shareplex System
 
 The following commands will leave you with a functioning Shareplex installation.
-
-Modify this files with the correct licence information:
-
-```
-└───software
-    │   shareplex_customer_name.txt
-    │   shareplex_licence_key.txt
-```
 
 Start the first node and wait for it to complete. This will create the primary database.
 
@@ -140,7 +133,7 @@ vagrant destroy -f
 ```
 
 ## Shareplex configuration
-User test is replicated. Here the shareplex configuration:
+Oracle user test is created in VM1 in pdb1 database and is replicated. Here the shareplex configuration:
 
 ```
 datasource:o.pdb1
@@ -149,11 +142,11 @@ expand test.%       test.%                  ol7-121-splex2@o.pdb1
 
 ```
 
-## Change Data Capture
+## Shareplex Change Data Capture
 
-Scripts are in ./shared_scripts/cdc directory.
+Sample scripts are included in ./shared_scripts/cdc directory.
 Amend file config.env if necessary.
-Tables created in test schema in source database will be replicated to test schema in target database. A new schema in target is created (cdc schema) that contains all modifications from tables cdc and cdc2 in test schema.
+Tables created in test schema in Node 1 in pdb1 database will be replicated to test schema in target database (Node 2). A new schema in target is created (cdc schema) that contains all modifications from tables cdc and cdc2 in test schema.
 
 ## AWS migration
 Scripts are in ./shared_scripts/datapump_migrations directory.
@@ -299,22 +292,3 @@ sh kafka_poc_install.sh
 [20190531-144743] Execute next command to check kafka messages from oracle
 [20190531-144743] sh kafka_consume_topic.sh
 ```
-
-
-## Architecture
-
-![](quest_poc_architecture.png)
-
-![](foglight_monitoring.png)
-
-![](foglight_monitoring_instance.png)
-
-![](virtualbox_instances.png)
-
-
-# POC
-Schema test in pdb1 database is replicated.
-Test table is created in pdb1 database in Node 1 with 1 record. This record is replicated in Node 2.
-You can create other objects in Node 1 that will be replicated in Node 2.
-Foglight will monitor all the activity of this 2 servers.
-
