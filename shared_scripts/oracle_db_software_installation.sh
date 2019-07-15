@@ -5,7 +5,9 @@ echo "**************************************************************************
 echo "Unzip database software." `date`
 echo "******************************************************************************"
 mkdir /u01/software/
-cd /u01/software/
+#cd /u01/software/
+
+cd $ORACLE_BINARIES_INSTALL
 
 echo "******************************************************************************"
 echo "Oracle Binaries download" `date`
