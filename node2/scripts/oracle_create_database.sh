@@ -38,6 +38,15 @@ ${PDB_NAME} =
     )
   )
 
+${PDB_NAME}_VM1 =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = ${NODE1_HOSTNAME})(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = ${PDB_NAME})
+    )
+  )
+
 EOF
 
 
