@@ -36,7 +36,7 @@ ${PDB_NAME}_VM2 =
     )
     (CONNECT_DATA =
       (SERVER = DEDICATED)
-      (SID = ${ORACLE_SID})
+      (SERVICE_NAME = ${PDB_NAME})
     )
   )
   
