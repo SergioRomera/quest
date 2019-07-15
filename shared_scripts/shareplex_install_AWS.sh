@@ -18,5 +18,8 @@ echo "**************************************************************************
 echo "Quest Shareplex AWS ora_setup." `date`
 echo "******************************************************************************"
 cd ${SHAREPLEX_DIRINSTALL}/bin
-echo -e "n\ny\n${RDS_DB_NAME}\n${RDS_USER}\n${RDS_PASSWORD}\nn\nsplex\nsplex\n\n\n\n\n\n" | ./ora_setup
+#Shareplex 9.2
+#echo -e "n\ny\n${RDS_DB_NAME}\n${RDS_USER}\n${RDS_PASSWORD}\nn\nsplex\nsplex\n\n\n\n\n\n" | ./ora_setup
+#Shareplex 9.2.3
+echo -e "n\ny\n\n${RDS_DB_NAME}\n${RDS_USER}\n${RDS_PASSWORD}\nn\nsplex\nsplex\n\n\n\n\n\n" | ./ora_setup
 
