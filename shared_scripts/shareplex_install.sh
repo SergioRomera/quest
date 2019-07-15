@@ -104,7 +104,10 @@ echo "**************************************************************************
 echo "Quest Shareplex configuration." `date`
 echo "******************************************************************************"
 cd ${SHAREPLEX_DIRINSTALL}/bin
-echo -e "n\n\npdb1\nc##sp_admin\nsp_admin\n\n\n\nQUEST_SHAREPLEX\n\nQUEST_SHAREPLEX\n\n" | ./ora_setup
+#Shareplex 9.2
+#echo -e "n\n\npdb1\nc##sp_admin\nsp_admin\n\n\n\nQUEST_SHAREPLEX\n\nQUEST_SHAREPLEX\n\n" | ./ora_setup
+#Shareplex 9.2.3
+echo -e "n\n\n\npdb1\nc##sp_admin\nsp_admin\n\n\n\nQUEST_SHAREPLEX\n\nQUEST_SHAREPLEX\n\n" | ./ora_setup
 
 mkdir -p ${SHAREPLEX_VARDIR}/2100/
 
