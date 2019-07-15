@@ -28,6 +28,7 @@ cat >> /home/oracle/.bash_profile <<EOF
 . /home/oracle/scripts/setEnv.sh
 PS1="[\u@\h:\[\033[33;1m\]\w\[\033[m\] ] $ "
 alias s='sqlplus / as sysdba'
+alias sr='rlwrap sqlplus / as sysdba'
 EOF
 
 echo "******************************************************************************"
