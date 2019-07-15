@@ -24,7 +24,9 @@ sh kafka_installation.sh
 
 cd /vagrant_scripts/kafka/
 
-info "Please, start consumer process and press ENTER to continue"
+info "Please, start consumer process in a new ssh session and execute this command: "
+info "cd /vagrant_scripts/kafka && sh kafka_consume_topic.sh"
+info "Please, ENTER to continue"
 read a
 
 sqlplus system/manager@pdb1_vm1 <<EOF > /dev/null 2>&1
