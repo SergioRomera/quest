@@ -18,6 +18,9 @@ sh /vagrant_scripts/configure_hosts_base.sh
 
 sh /vagrant_scripts/configure_chrony.sh
 
+ORACLE_HOSTNAME=${NODE4_HOSTNAME}
+sh /vagrant_scripts/configure_hostname.sh
+
 echo "******************************************************************************"
 echo "Change ip configuration" `date`
 echo "******************************************************************************"
@@ -35,6 +38,12 @@ echo "**************************************************************************
 useradd foglight
 
 sudo su - foglight -c "sh /vagrant/scripts/foglight_setup.sh"
+
+echo ""
+echo "******************************************************************************"
+echo "Foglight auto start" `date`
+echo "******************************************************************************"
+sh /vagrant/scripts/foglight_auto_start.sh
 
 echo "******************************************************************************"
 echo "Foglight Installation finished." `date`

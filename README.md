@@ -1,6 +1,6 @@
 # Vagrant for Quest Shareplex and Foglight to Oracle 12R1 Build
 
-The Vagrant scripts here will allow you to build 2 virtual machines in your comuter with an Oracle Database 12cR1 and Shareplex 9.2.0 in each node (1 and 2) and Foglight 5.9.2 by just starting the VMs in the correct order.
+The Vagrant scripts here will allow you to build 2 virtual machines in your comuter with an Oracle Database 12cR1 and **Shareplex 9.2.3** (last version) in each node (1 and 2) and **Foglight 5.9.4** by just starting the VMs in the correct order.
 
 Three new features has been added:
 

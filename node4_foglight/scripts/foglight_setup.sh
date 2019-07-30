@@ -1,5 +1,8 @@
 . /vagrant_config/install.env
 
+cat >> /home/foglight/.bash_profile <<EOF
+PS1="[\u@\h:\[\033[33;1m\]\w\[\033[m\] ] $ "
+EOF
 
 echo ""
 echo "******************************************************************************"
@@ -35,6 +38,14 @@ FOGLIGHT_BINARY=`ls -t Foglight*.bin`
 #Free trial from https://www.quest.com/register/55612/
 #cd /vagrant_software/
 #./Foglight-for-Cross-Platform-Databases-installer-Linux-64bit_59320.bin -f fms_silent_install.properties  -i silent
+
+cat >> /home/foglight/Quest/Foglight/state/postgresql-data/pg_hba.conf <<EOF
+host    all             all             10.0.2.2/32             password
+EOF
+
+cat >> /home/foglight/Quest/Foglight/state/postgresql-data/postgresql.conf <<EOF
+listen_addresses = '*'
+EOF
 
 echo ""
 echo "******************************************************************************"
