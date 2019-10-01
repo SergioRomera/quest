@@ -1,0 +1,2 @@
+DB Agent Name (Optional),Host Name,Instance Name,DB Port (optional),DB Credentials Type,DB User Name,DB Password,DB Power User Credentials Type,DB Power User Name,DB Power User Password,Should monitor OS(String - true/false),OS Credentials Type,OS User Name,OS Password,Enable VMware Collection(String - true/false),VMware Host,VMware Port(Optional),VMware User Name,VMware Password,Enable PI(String - true/false),SSLConnection(String - Off/Optional/Mandatory)
+,ol7-mssql,,1433,SQL_Server_Authentication,sa,SQLServer01,,,,False,,,,,,,,,False,,
