@@ -7,7 +7,7 @@ rm -f public-yum-ol7.repo
 wget https://yum.oracle.com/public-yum-ol7.repo
 yum install -y yum-utils
 yum-config-manager --enable ol7_developer_EPEL
-yum install -y zip unzip mlocate telnet tree # sshpass 
+yum install -y zip unzip mlocate telnet tree htop # sshpass 
 yum install -y rlwrap # sqlplus arrows 
 
 #Kafka prerequisite
