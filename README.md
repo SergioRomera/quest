@@ -1,8 +1,9 @@
-# Vagrant for Quest Shareplex and Foglight to Oracle 12R1 Build
+# Vagrant for Quest Shareplex and Foglight
 
-The Vagrant scripts here will allow you to build 2 virtual machines in your comuter with an Oracle Database 12cR1 and **Shareplex 9.2.3** (last version) in each node (1 and 2) and **Foglight 5.9.4** by just starting the VMs in the correct order.
+The Vagrant scripts here will allow you to build 4 virtual machines in your computer with an Oracle Database 12cR1 and **Shareplex 9.2.4** in each node (1 and 2) and **Foglight 5.9.4** by just starting the VMs in the correct order.
+SQL Server 2017 Express Edition has been also included in node 5. 
 
-Three new features has been added:
+Features:
 
 * Shareplex Change Data Capture
 * On premise to AWS RDS database migration
@@ -100,6 +101,17 @@ cd ../node4
 vagrant up
 ```
 
+# Build SQL Server System
+
+The following commands will leave you with a functioning SQL Server 2017 installation.
+
+Start the node 5 and wait for it to complete.
+
+```
+cd ../node5
+vagrant up
+```
+
 
 # Turn Off System
 
@@ -107,6 +119,9 @@ Perform the following to turn off the system cleanly.
 
 
 ```
+cd ../node5
+vagrant halt
+
 cd ../node4
 vagrant halt
 
@@ -122,6 +137,9 @@ vagrant halt
 The following commands will destroy all VMs and the associated files, so you can run the process again.
 
 ```
+cd ../node5
+vagrant destroy -f
+
 cd ../node4
 vagrant destroy -f
 
