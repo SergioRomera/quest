@@ -4,7 +4,7 @@ shared:
 
 node1:
   vm_name: ol7_121_splex1
-  mem_size: 2048
+  mem_size: 4096
   cpus: 2
   public_ip: 192.168.56.101
   u01_disk: /temp/vdi/ol7_121_cplex1_u01.vdi
@@ -25,7 +25,14 @@ node3:
 
 node4:
   vm_name: ol7_foglight
-  mem_size: 4096
+  mem_size: 6144
   cpus: 4
   public_ip: 192.168.56.104
   u01_disk: /temp/vdi/ol7_foglight_u01.vdi
+
+node5:
+  vm_name: ol7_mssql
+  mem_size: 3072
+  cpus: 1
+  public_ip: 192.168.56.105
+  u01_disk: /temp/vdi/ol7_mssql_u01.vdi
