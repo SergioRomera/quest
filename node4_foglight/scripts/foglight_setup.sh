@@ -19,6 +19,10 @@ else
   cd $FOGLIGHT_CARTRIDGES
   echo "Download $FOGLIGHT_CARTRIDGE_ORACLEDB in progress..."
   wget -q $FOGLIGHT_CARTRIDGE_ORACLEDB
+  echo "Download $FOGLIGHT_CARTRIDGE_SQLSERVERDB in progress..."
+  wget -q $FOGLIGHT_CARTRIDGE_SQLSERVERDB
+  echo "Download $FOGLIGHT_CARTRIDGE_POSTGRESQLDB in progress..."
+  wget -q $FOGLIGHT_CARTRIDGE_POSTGRESQLDB
   echo "Download $FOGLIGHT_CARTRIDGE_INFRA in progress..."
   wget -q $FOGLIGHT_CARTRIDGE_INFRA
 fi
@@ -96,6 +100,8 @@ echo "Cartridges" `date`
 echo "******************************************************************************"
 ./fglcmd.sh -usr foglight -cmd cartridge:enable -n DB_Oracle -v 5.9.3.20
 ./fglcmd.sh -usr foglight -cmd cartridge:enable -n DB_Oracle_UI -v 5.9.3.20
+./fglcmd.sh -usr foglight -cmd cartridge:enable -n DB_SQL_Server -v 5.9.3.10
+./fglcmd.sh -usr foglight -cmd cartridge:enable -n DB_SQL_Server_UI -v 5.9.3.10
 #./fglcmd.sh -usr foglight -cmd cartridge:install -f /vagrant_software/foglight_cartridges/DB_Oracle-5_9_3_20.car
 #./fglcmd.sh -usr foglight -cmd cartridge:enable -n IntelliProfile -v 5.9.0.1
 #./fglcmd.sh -usr foglight -cmd cartridge:enable -n SanHost -v 3.3.0
