@@ -12,7 +12,7 @@ cd /etc/yum.repos.d
 #yum install -y yum-utils
 #yum-config-manager --enable ol7_developer_EPEL
 #yum install -y zip unzip mlocate telnet tree 
-yum install -y unzip mlocate tree telnet
+yum install -y unzip mlocate tree telnet ksh
 
 sh /vagrant_scripts/configure_hosts_base.sh
 
