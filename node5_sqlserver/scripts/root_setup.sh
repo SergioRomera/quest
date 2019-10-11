@@ -13,4 +13,5 @@ sh /vagrant_scripts/configure_chrony.sh
 sh /vagrant/scripts/configure_hostname.sh
 
 sh /vagrant/scripts/install_mssql.sh
+sh /vagrant/scripts/install_database.sh
 
