@@ -22,6 +22,7 @@ unzip AdventureWorksDW-data-warehouse-install-script.zip
 iconv -f utf-16le -t utf-8 instawdbdw.sql -o installdw_tmp.sql
 sed -e 's/C:\\Samples\\AdventureWorksDW\\/\/tmp\/AdventureWorksDW\//g' installdw_tmp.sql >installdw_sed.sql
 sed -i 's/CREATE TABLE \[/SET QUOTED_IDENTIFIER ON;\nCREATE TABLE [/g' installdw_sed.sql
+sed -i '/ACP/d' installdw_sed.sql
 echo "Download AdventureWorksDW finished"
 
 echo "Creating AdventureWorks database..."
