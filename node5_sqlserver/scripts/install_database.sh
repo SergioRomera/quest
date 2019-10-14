@@ -10,6 +10,7 @@ unzip AdventureWorks-oltp-install-script.zip
 #Change file charset 
 iconv -f utf-16le -t utf-8 instawdb.sql -o install_tmp.sql
 sed -e 's/C:\\Samples\\AdventureWorks\\/\/tmp\/AdventureWorks\//g' install_tmp.sql >install_sed.sql
+sed -i '/ACP/d' install_sed.sql
 echo "Download AdventureWorks finished"
 
 echo "Downloading AdventureWorksDW database"
