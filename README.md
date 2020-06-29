@@ -1,6 +1,6 @@
 # Vagrant for Quest Shareplex and Foglight
 
-The Vagrant scripts here will allow you to build 4 virtual machines in your computer with an Oracle Database 12cR1 and **Shareplex 9.2.4** in each node (1 and 2) and **Foglight 5.9.4** by just starting the VMs in the correct order.
+The Vagrant scripts here will allow you to build 4 virtual machines in your computer with an Oracle Database 12cR1 and **Shareplex 9.4** in each node (1 and 2) and **Foglight 5.9.4** by just starting the VMs in the correct order.
 SQL Server 2017 Express Edition has been also included in node 5. 
 
 Features:
